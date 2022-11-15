@@ -10,7 +10,7 @@ import {
 } from "@thirdweb-dev/react";
 import "./styles/Home.css";
 
-const CONTRACT_ADDR = "0x25824B94fb2a9fEfad52ff97Cf56B0d98C56CD35";
+const CONTRACT_ADDR = "0x4bb2946EFF3f719F9e0D1919CeAc58c492021E3a";
 
 export default function Home() {
   const address = useAddress();
@@ -29,28 +29,41 @@ export default function Home() {
 
   return (
     <div className="container">
-      <main className="main">
-        <h1 className="title">
-          Wellcome to the <a href="https://crvpto.io">Crvpto</a> membership community genesis
-        </h1>
-        
-        <div className="connect">
-          <ConnectWallet />
+      <div className="navbar">
+        <div className="brand">
+          <img src="/img/crvpto-platform.png" alt="Crvpto platform" />
         </div>
-
+      </div>
+      <main className="main">
+        <div className="title-intro">
+          <p>Welcome the future of jewelry with the Crvpto Soul edition</p>
+        </div>
+        <h1 className="title">
+          Genesis
+        </h1>
         <div>
           {
             claimCondition && nfts ?
             <div className="description">
-              <p>
-                Each <b>Crvpto Soul</b> token will allow you to <b>claim one real jewel</b> 
-                of our next jewelery collections about Proof of Work and Proof of Stake Blockchains
-                 (<a href="https://crvpto.io">read more</a>)
-              </p>
-              { totalClaimed } of { maxClaimableSupply } Soul tokens already claimed
+              { totalClaimed } of { maxClaimableSupply } Genesis Souls have already an owner
             </div> : <></>
           }
         </div>
+        <div className="description is-inverted">
+          <p className="large"><strong>Each Crvpto Soul allows you to:</strong>
+          </p>
+          <ul className="large">
+            <li>claim one physical jewel build in Q1 2023</li>
+            <li>access the Discord community of Soul owners where you will be given the possibility to discuss and vote on different jewelry designs.</li>
+          </ul>
+          <p>Crvpto jewelry is designed and build by a curated list of jewelry designers and manufacturers only available on the Crvpto platform. <br />
+          <a href="https://www.crvpto.io/#what">Read more on www.crvpto.io</a> </p>
+        </div>
+        <div className="connect">
+          <ConnectWallet accentColor="#D3FBD6"/>
+        </div>
+
+
 
         {
           nfts && address ?
@@ -62,15 +75,15 @@ export default function Home() {
                   {
                       genesisBalance && Number(genesisBalance) > 0 ?
                       <>
-                        <h2>You have {Number(genesisBalance)} Soul tokens!</h2>
+                        <h2>You have {Number(genesisBalance)} Crvpto Soul tokens!</h2>
                         <p>
-                          Thanks for being part of the Crvpto comunity.
+                          Enjoy being part of the Crvpto comunity.
                         </p>
                       </> :
                       <>
-                        <h2>Join the Crvpto genesis!</h2>
+                        <h2>Join the community of the Crvpto Genesis Soul edition.</h2>
                         <p>
-                          Get Crvpto membership tokens and join the community.
+                          Get Crvpto Soul tokens and join the community.
                         </p>
                       </>
                   }
