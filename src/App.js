@@ -10,7 +10,7 @@ import {
 } from "@thirdweb-dev/react";
 import "./styles/Home.css";
 
-const CONTRACT_ADDR = "0x4bb2946EFF3f719F9e0D1919CeAc58c492021E3a";
+const CONTRACT_ADDR = "0xD0442E92d69Dc243679e2E0Cf58D62C77FB891BB";
 
 export default function Home() {
   const address = useAddress();
@@ -19,13 +19,14 @@ export default function Home() {
   const { data: genesisBalance } = useContractRead(contract, "balanceOf", address, "0");
   const [error, setError] = useState("");
   const { data: claimCondition } = useContractRead(contract, "claimCondition", "0");
-  const claimable = claimCondition ? (Number(claimCondition.maxClaimableSupply) -
-    Number(claimCondition.supplyClaimed) > 0) : 0;
+  const claimable = 1000; /* claimCondition ? (Number(claimCondition.maxClaimableSupply) -
+    Number(claimCondition.supplyClaimed) > 0) : fasle; */
   
-  const totalClaimed = claimCondition ? Number(claimCondition.supplyClaimed) : 0;
+  const totalClaimed = 1;/* claimCondition && claimCondition.supplyClaimed ? Number(claimCondition.supplyClaimed) : 0; */
   // const totalLeft = claimCondition ? Number(claimCondition.maxClaimableSupply) -
   //   Number(claimCondition.supplyClaimed) : 0;
-  const maxClaimableSupply = claimCondition ? Number(claimCondition.maxClaimableSupply) : 0;
+
+  // const maxClaimableSupply = claimCondition ? Number(claimCondition.maxClaimableSupply) || 0 : 0;
 
   return (
     <div className="container">
@@ -45,7 +46,7 @@ export default function Home() {
           {
             claimCondition && nfts ?
             <div className="description">
-              { totalClaimed } of { maxClaimableSupply } Genesis Souls have already an owner
+              { totalClaimed } of { claimable } Genesis Souls have already an owner
             </div> : <></>
           }
         </div>
@@ -122,7 +123,7 @@ export default function Home() {
                     <p>
                       Thanks for being part of this comunity. We are now building the next milestone of the project!
                     </p>
-                  </> :
+                  </> : 
                   <>
                     <h2>Sorry, all the first edition of the Crvpto genesis tokens are over.</h2>
                     <p>
