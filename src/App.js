@@ -56,16 +56,14 @@ export default function Home() {
           </p>
           <ul className="large">
             <li>claim one physical jewel build in Q1 2023</li>
-            <li>access the Discord community of Soul owners where you will be given the possibility to discuss and vote on different jewelry designs.</li>
+            <li>access the <a href="https://discord.gg/drg5aurS8b">Discord community of Soul owners</a> where you will be given the possibility to discuss and vote on different jewelry designs.</li>
           </ul>
           <p>Crvpto jewelry is designed and build by a curated list of jewelry designers and manufacturers only available on the Crvpto platform. <br />
-          <a href="https://www.crvpto.io/#what">Read more on www.crvpto.io</a> </p>
+          <a href="https://www.crvpto.io/#what">Read more at www.crvpto.io</a> </p>
         </div>
         <div className="connect">
           <ConnectWallet accentColor="#D3FBD6"/>
         </div>
-
-
 
         {
           nfts && address ?
