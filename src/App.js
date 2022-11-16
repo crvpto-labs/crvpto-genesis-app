@@ -18,14 +18,15 @@ export default function Home() {
   const { data: nfts, isLoading } = useNFTs(contract);
   const { data: genesisBalance } = useContractRead(contract, "balanceOf", address, "0");
   const [error, setError] = useState("");
-  const { data: claimCondition } = useContractRead(contract, "claimCondition", "0");
-  const claimable = 1000; /* claimCondition ? (Number(claimCondition.maxClaimableSupply) -
-    Number(claimCondition.supplyClaimed) > 0) : fasle; */
+  const { data: claimCondition } = useContractRead(contract, "getClaimConditionById", "0", "0");
+  const claimable = claimCondition ? (Number(claimCondition.maxClaimableSupply) -
+    Number(claimCondition.supplyClaimed) > 0) : false;
   
-  const totalClaimed = 1;/* claimCondition && claimCondition.supplyClaimed ? Number(claimCondition.supplyClaimed) : 0; */
+  const totalClaimed = claimCondition && claimCondition.supplyClaimed ? Number(claimCondition.supplyClaimed) : 0;
+
+  // compute totalLeft and maxClaimableSupply if needed
   // const totalLeft = claimCondition ? Number(claimCondition.maxClaimableSupply) -
   //   Number(claimCondition.supplyClaimed) : 0;
-
   // const maxClaimableSupply = claimCondition ? Number(claimCondition.maxClaimableSupply) || 0 : 0;
 
   return (
@@ -110,8 +111,8 @@ export default function Home() {
                     >
                       {
                         genesisBalance && Number(genesisBalance) > 0 ?
-                        <>Get another Soul</> :
-                        <>Get a Soul token</>
+                        <>Get another Soul <small>100 MATIC</small></> :
+                        <>Get a Soul token <small>100 MATIC</small></>
                       }
                   </Web3Button>
                 </> :
