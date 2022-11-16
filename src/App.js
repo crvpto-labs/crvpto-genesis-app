@@ -20,14 +20,13 @@ export default function Home() {
   const [error, setError] = useState("");
   const { data: claimCondition } = useContractRead(contract, "getClaimConditionById", "0", "0");
   const claimable = claimCondition ? (Number(claimCondition.maxClaimableSupply) -
-    Number(claimCondition.supplyClaimed) > 0) : false;
-  
+    Number(claimCondition.supplyClaimed) > 0) : false;  
   const totalClaimed = claimCondition && claimCondition.supplyClaimed ? Number(claimCondition.supplyClaimed) : 0;
+  const maxClaimableSupply = claimCondition ? Number(claimCondition.maxClaimableSupply) || 0 : 0;
 
   // compute totalLeft and maxClaimableSupply if needed
   // const totalLeft = claimCondition ? Number(claimCondition.maxClaimableSupply) -
   //   Number(claimCondition.supplyClaimed) : 0;
-  // const maxClaimableSupply = claimCondition ? Number(claimCondition.maxClaimableSupply) || 0 : 0;
 
   return (
     <div className="container">
@@ -47,7 +46,7 @@ export default function Home() {
           {
             claimCondition && nfts ?
             <div className="description">
-              { totalClaimed } of { claimable } Genesis Souls have already an owner
+              { totalClaimed } of { maxClaimableSupply } Genesis Souls have already an owner
             </div> : <></>
           }
         </div>
