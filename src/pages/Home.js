@@ -55,7 +55,7 @@ export default function Home() {
           </p>
           <ul className="large">
             <li>claim one physical jewel build in Q1 2023</li>
-            <li>access the <a href="https://discord.gg/t8RsArcSzE">Discord community of Soul owners</a> where you will be given the possibility to discuss and vote on different jewelry designs.</li>
+            <li>access the <a href="https://discord.gg/mXB22bvNQR">Discord community of Soul owners</a> where you will be given the possibility to discuss and vote on different jewelry designs.</li>
           </ul>
           <p>Crvpto jewelry is designed and build by a curated list of jewelry designers and manufacturers only available on the Crvpto platform. <br />
           <a href="https://www.crvpto.io/#what">Read more at www.crvpto.io</a> </p>
