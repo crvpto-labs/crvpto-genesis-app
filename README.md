@@ -12,4 +12,4 @@ yarn deploy
 
 ## Join our Discord!
 
-For any questions, suggestions, join our discord at [https://discord.gg/crvpto](https://discord.gg/nPAF7Btw).
+For any questions, suggestions, join our discord at [https://discord.gg/crvpto](https://discord.gg/TTJfja2TYe).
